@@ -11,74 +11,65 @@ class BarChartWOPack extends StatefulWidget {
 class _BarChartWOPackState extends State<BarChartWOPack> {
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width * 0.50;
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Center(
-          child: Container(
-            height: 460,
-            width: double.infinity,
-            color: Color(0xffF6F6F6),
-            child: Center(
-              child: Stack(
-                children: <Widget>[
-                  Positioned(
-                    bottom: 24,
-                    child: Container(
-                      width: width,
-                      child: DottedLine(
-                        dashColor: Colors.black12,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 48,
-                    child: Container(
-                      width: width,
-                      child: DottedLine(
-                        dashColor: Colors.black12,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 72,
-                    child: Container(
-                      width: width,
-                      child: DottedLine(
-                        dashColor: Colors.black12,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 96,
-                    child: Container(
-                      width: width,
-                      child: DottedLine(
-                        dashColor: Colors.black12,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 119,
-                    child: Container(
-                      width: width,
-                      child: DottedLine(
-                        dashColor: Colors.black12,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 120,
-                    width: width,
-                    child: CustomPaint(
-                      foregroundPainter: GraphPainter(),
-                    ),
-                  ),
-                ],
+      backgroundColor: Colors.blueGrey,
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            GestureDetector(
+              onTap: () {
+                print("Sin miedo al exito");
+              },
+              child: Container(
+                padding: EdgeInsets.all(10),
+                color: Colors.transparent,
+                constraints: BoxConstraints(minHeight: 200, maxHeight: 250),
+                child: CustomPaint(
+                  foregroundPainter: GraphPainter(),
+                ),
               ),
             ),
-          ),
+            GestureDetector(
+              onTap: () {
+                print("Sin miedo al exito");
+              },
+              child: Container(
+                padding: EdgeInsets.all(10),
+                color: Colors.transparent,
+                constraints: BoxConstraints(minHeight: 200, maxHeight: 250),
+                child: CustomPaint(
+                  foregroundPainter: GraphPainter(),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                print("Sin miedo al exito");
+              },
+              child: Container(
+                padding: EdgeInsets.all(10),
+                color: Colors.transparent,
+                constraints: BoxConstraints(minHeight: 200, maxHeight: 250),
+                child: CustomPaint(
+                  foregroundPainter: GraphPainter(),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                print("Sin miedo al exito");
+              },
+              child: Container(
+                padding: EdgeInsets.all(10),
+                color: Colors.transparent,
+                constraints: BoxConstraints(minHeight: 200, maxHeight: 250),
+                child: CustomPaint(
+                  foregroundPainter: GraphPainter(),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -86,6 +77,12 @@ class _BarChartWOPackState extends State<BarChartWOPack> {
 }
 
 class GraphPainter extends CustomPainter {
+  Paint trackPaint = Paint()
+    ..color = Colors.white
+    ..style = PaintingStyle.stroke
+    ..strokeCap = StrokeCap.round
+    ..strokeWidth = 10;
+
   Paint trackBar1Paint = Paint()
     ..color = Color(0xff818aab)
     ..style = PaintingStyle.stroke
@@ -104,13 +101,6 @@ class GraphPainter extends CustomPainter {
     ..strokeCap = StrokeCap.round
     ..strokeWidth = 10;
 
-  Paint trackPaint = Paint()
-    ..color = Colors.white
-    ..style = PaintingStyle.stroke
-    ..strokeCap = StrokeCap.round
-    ..strokeWidth = 10;
-
-  @override
   void paint(Canvas canvas, Size size) {
     Path trackPath = Path();
     Path trackBarPath = Path();
@@ -143,7 +133,7 @@ class GraphPainter extends CustomPainter {
 
     double origin = 0;
 
-    for (var i = 0; i < val.length; i++) {
+    for (var i = 0; i < 1; i++) {
       trackPath.moveTo(origin, size.height);
       trackPath.lineTo(origin, 0);
 
